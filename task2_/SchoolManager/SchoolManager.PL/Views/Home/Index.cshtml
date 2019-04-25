@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+}
+@model IEnumerable<SchoolManager.PL.Models.PersonViewModel>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Список сотрудников</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div>
+        <h1 class="h1 text-center">Список сотрудников</h1>
+        <table class="table-bordered table-hover col-md-12">
+            <tr>
+                <th class ="col-md-6"><p class="text-center">Полное имя</th>
+                <th class ="col-md-2"><p class="text-center">День рождения</p></th>
+                <th class ="col-md-2"><p class="text-center">Email адрес</p></th>
+                <th class ="col-md-2"><p class="text-center">Контактный телефон</p></th>
+            </tr>
+            @foreach (var p in Model)
+            {
+                <tr class="col-md-12">
+                    <td class="col-md-6"><p class="text-center">@p.LastName @p.FirstName @p.MiddleName</p></td>
+                    <td class="col-md-2"><p class="text-center">@p.BirthDay</p></td>
+                    <td class="col-md-2"><p class="text-center">@p.Email</p></td>
+                    <td class="col-md-2"><p class="text-center">@p.Telephone</p></td>
+                </tr>
+            }
+            <tr class="col-md-12 text-center"><td><p>@Html.ActionLink("Добавить нового сотрудника", "Create", "Home")</p><td></tr>
+        </table>
+    </div>
+</body>
+</html>

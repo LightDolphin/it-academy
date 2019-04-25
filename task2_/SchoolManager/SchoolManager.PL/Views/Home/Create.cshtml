@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+@Styles.Render("~/Content/css")
+@model SchoolManager.PL.Models.PersonViewModel
+
+<div class="col-md-12">
+ <h2 class="h2">Добавление нового сотрудника</h2>
+@using (Html.BeginForm("Create", "Home", FormMethod.Post,new {@class = "form-horizontal border border-primary" }))
+{
+        <div class="form-group ">
+            @Html.LabelFor(model => model.FirstName, new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.FirstName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.LastName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.MiddleName, new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.MiddleName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.BirthDay, new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.BirthDay, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.BirthDay, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Telephone, new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.Telephone, new { @class = "form-control col-md-2" })
+            @Html.ValidationMessageFor(model => model.Telephone, "" , new {@class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group col-md-12"><input type="submit" value="Отправить" class="btn-success col-md-6 form-control"/></div>
+}
+</div>
